@@ -1,0 +1,111 @@
+.create-container {
+  padding: 20px;
+  margin-left: 15%;
+
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+.form-container input {
+  border: 1px solid gray;
+  border-radius: 4px;
+  width: 60vw;
+  height: 50px;
+}
+.form-container select {
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+.form-container label {
+  font-weight: 500;
+  font-size: 17px;
+  display: flex;
+}
+.form-container label span {
+  color: #f57c00;
+}
+.create-text {
+  font-size: 20px;
+  font-weight: 800;
+}
+.submit {
+  background-color: #f57c00;
+  border-radius: 5px;
+  border: 1px solid #f57c00;
+  color: white;
+  width: 15%;
+  padding: 10px;
+  cursor: pointer;
+}
+.create-back-button {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  cursor: pointer;
+}
+.link-back {
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid #f57c00;
+  padding: 5px;
+  width: 10%;
+  display: flex;
+  text-align: center;
+  text-decoration: none;
+}
+.back {
+  border: 1px solid transparent;
+  height: 100%;
+  background-color: transparent;
+  color: #f57c00;
+  width: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width:600px) {
+  .create-back-button{
+    width: 100%;
+  }
+.link-back {
+  border-radius: 5px;
+  border: 1px solid #f57c00;
+  padding: 5px;
+  width: 50%;
+  display: flex;
+  text-align: center;
+  text-decoration: none;
+}
+.back {
+  border: 1px solid transparent;
+  height: 100%;
+  background-color: transparent;
+  color: #f57c00;
+  width: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.submit {
+  background-color: #f57c00;
+  border-radius: 5px;
+  border: 1px solid #f57c00;
+  color: white;
+  width: 50%;
+  padding: 10px;
+  cursor: pointer;
+}
+.create-container {
+  padding: 20px;
+  margin-left: 2%;
+
+}
+}

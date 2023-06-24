@@ -1,0 +1,32 @@
+<div class="create-container">
+  <p class="create-text">Create New Ticket</p>
+  <form (ngSubmit)="onSubmit()" class="form-container">
+    <label for="name">Name <span>*</span></label>
+    <input type="text" id="name" name="name" [(ngModel)]="ticket.name" />
+
+    <label for="date">Date <span>*</span></label>
+    <input type="date" id="date" name="date" [(ngModel)]="ticket.date" />
+
+    <label for="title">Title <span>*</span></label>
+    <input type="text" id="title" name="title" [(ngModel)]="ticket.title" />
+
+    <label for="desc">Description <span>*</span></label>
+    <textarea id="desc" name="desc" [(ngModel)]="ticket.desc"></textarea>
+
+    <label for="open">Status <span>*</span></label>
+    <select id="open" name="open" [(ngModel)]="ticket.open">
+      <option value="open">Open</option>
+      <option value="closed">Closed</option>
+    </select>
+    <label for="mid">Priority <span>*</span></label>
+    <select id="mid" name="mid" [(ngModel)]="ticket.mid">
+      <option [ngValue]="'low'">Low</option>
+    </select>
+    <div class="create-back-button">
+      <button class="link-back">
+        <a href="/my-tickets" class="back"> Back </a>
+      </button>
+      <button type="submit" class="submit">Create Ticket</button>
+    </div>
+  </form>
+</div>

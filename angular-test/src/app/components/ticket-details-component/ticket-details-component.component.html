@@ -1,0 +1,50 @@
+<div *ngIf="ticket" class="ticket">
+  <div class="ticket-header">
+    <p class="ticket-header-text">My Ticket Details</p>
+    <a href="/my-tickets" class="back-href">
+      <button class="back-href-button">Back</button>
+    </a>
+  </div>
+  <div class="ticket-details">
+    <div class="ticket-container">
+      <div class="ticket-container-details-top">
+        <p>
+          {{ ticket.name }}
+        </p>
+        <p>
+          {{ ticket.date }}
+        </p>
+      </div>
+      <p>
+        {{ ticket.title }}
+      </p>
+      <div class="ticket-container-details">
+        <p class="description">
+          {{ ticket.desc }}
+        </p>
+        <div
+          style="background-color: rgba(0, 0, 0, 0.4); height: 40px; width: 1px"
+        ></div>
+        <div
+          class="ticket-status"
+          [ngClass]="{
+            closed: ticket.open === 'Close',
+            low: ticket.open === 'Low',
+            'open-border': ticket.open === 'Open'
+          }"
+        >
+          {{ ticket.open }}
+        </div>
+        <div
+          class="ticket-mid"
+          [ngClass]="{
+            urgent: ticket.mid === 'Urgent',
+            mid: ticket.mid === 'Mid'
+          }"
+        >
+          {{ ticket.mid ? ticket.mid : "" }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "http://admin-test.r-link.io/api/yazan",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

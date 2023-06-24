@@ -1,0 +1,115 @@
+<div class="sidebar" [ngClass]="{ 'sidebar-open': sidebarOpen }">
+  <div class="sidebar-container">
+    <div style="display: flex;justify-content: space-between;width: 100%;align-items: center;">
+      <h1>CRM</h1>
+      <p (click)="toggleSidebar()"> <img src="../../../assets/arrow.svg"></p>
+    </div>
+    <input type="search" class="search-input" placeholder="search" />
+    <ul>
+      <li>
+        <a routerLink="/my-tickets" routerLinkActive="active"
+          ><mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="Tickets"
+          ></mat-icon>
+          My Tickets</a
+        >
+      </li>
+      <li>
+        <a routerLink="/home" routerLinkActive="active">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="home"
+          ></mat-icon
+          >home</a
+        >
+      </li>
+      <li>
+        <a routerLink="/update" routerLinkActive="active">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="update"
+          ></mat-icon
+          >Update</a
+        >
+      </li>
+      <li>
+        <a routerLink="/my-task" routerLinkActive="active">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="Taks"
+          ></mat-icon
+          >My Taks</a
+        >
+      </li>
+      <li>
+        <a routerLink="/my-task" routerLinkActive="active">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="Sitting"
+          >
+          </mat-icon>
+          Sitting</a
+        >
+      </li>
+      <div class="line"></div>
+      <!-- dropDown Projects -->
+      <li>
+        <a
+          routerLink="/my-task"
+          routerLinkActive="active"
+          (click)="toggleProjects()"
+          class="dropDown-container"
+        >
+          Projects
+          <span class="material-icons">arrow_forward_ios</span>
+        </a>
+        <div *ngIf="showProjects" style="display: flex; flex-direction: column">
+          <div class="dropDown-child">
+            <p>projects name</p>
+            <span>...</span>
+          </div>
+          <div class="dropDown-child">
+            <p>projects name 2</p>
+            <span>...</span>
+          </div>
+        </div>
+      </li>
+      <!-- dropDown Projects -->
+
+      <div class="line"></div>
+      <!-- dropDown Teams -->
+
+      <li>
+        <a
+          routerLink="/my-task"
+          routerLinkActive="active"
+          (click)="toggleteams()"
+          class="dropDown-container"
+        >
+          Teams
+          <span class="material-icons">arrow_forward_ios</span>
+        </a>
+        <div *ngIf="showteams" style="display: flex; flex-direction: column">
+          <div class="dropDown-child">
+            <p>Teams name</p>
+            <span>...</span>
+          </div>
+          <div class="dropDown-child">
+            <p>Teams name 2</p>
+            <span>...</span>
+          </div>
+        </div>
+      </li>
+      <!-- dropDown teams -->
+    </ul>
+  </div>
+  <div class="sidNav-bottom">
+    <span class="sideNav-bottom-content">F</span>Flick.UX/UI Team
+  </div>
+</div>

@@ -1,0 +1,134 @@
+<div class="ticket-container">
+  <div class="ticket-left">
+    <div class="ticket-top">
+      <p style="font-size: 20px; font-weight: 800">My Tickets</p>
+      <a href="/create" class="link-new-ticket">
+        <button class="new-ticket">New ticket</button>
+      </a>
+    </div>
+    <div class="ticket-detailes-container">
+      <div *ngIf="searchResult; else noResult">
+        <p *ngFor="let ticket of filteredTickets"></p>
+      </div>
+      <ng-template #noResult>
+        <p>No results found.</p>
+      </ng-template>
+      <div
+        *ngFor="let ticket of filteredTickets"
+        class="ticket-detailes"
+        (click)="viewTicket(ticket.id)"
+      >
+        <div class="ticket-detailes-top">
+          <p>
+            {{ ticket.name }}
+          </p>
+          <p>
+            {{ ticket.date }}
+          </p>
+        </div>
+        <p>
+          {{ ticket.title }}
+        </p>
+        <div style="display: flex; gap: 10px; align-items: center">
+          <p style="font-size: 20px; font-weight: 500">
+            {{ ticket.desc }}
+          </p>
+          <div class="line"></div>
+          <div
+            class="ticket-status"
+            [ngClass]="{
+              closed: ticket.open === 'Close',
+              low: ticket.open === 'Low',
+              'open-border': ticket.open === 'Open'
+            }"
+          >
+            {{ ticket.open }}
+          </div>
+          <div
+            class="ticket-mid"
+            [ngClass]="{
+              urgent: ticket.mid === 'Urgent',
+              mid: ticket.mid === 'Mid'
+            }"
+          >
+            {{ ticket.mid ? ticket.mid : "" }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ticket-right">
+    <div class="ticket-right-top">
+      <img
+        src="../../../assets/filterIcon.svg"
+        alt=""
+        style="width: 30px; height: 30px"
+      />
+      <h1 style="font-size: 20px; font-weight: 500">Tickets filter</h1>
+    </div>
+
+    <div class="ticket-right-bottom">
+      <div class="form-container">
+        <div class="form-input">
+          <label for="search-name">Name:</label>
+          <input
+            type="text"
+            id="search-name"
+            name="search-name"
+            [(ngModel)]="nameQuery"
+          />
+        </div>
+        <div class="form-input">
+          <label for="search-date">Date:</label>
+          <input
+            type="text"
+            id="search-date"
+            name="search-date"
+            [(ngModel)]="dateQuery"
+          />
+        </div>
+        <div class="form-input">
+          <label for="search-title">Title:</label>
+          <input
+            type="text"
+            id="search-title"
+            name="search-title"
+            [(ngModel)]="titleQuery"
+          />
+        </div>
+        <div style="display: flex; flex-direction: column">
+          <label for="search-desc">Description:</label>
+          <input
+            type="text"
+            id="search-desc"
+            name="search-desc"
+            [(ngModel)]="descQuery"
+          />
+        </div>
+      </div>
+      <div style="display: flex; margin-top: 20px" class="form-container">
+        <div class="form-input">
+          <label for="filter-open">Open:</label>
+          <select id="filter-open" [(ngModel)]="openFilter">
+            <option value="">Any</option>
+            <option value="Open">Open</option>
+            <option value="Close">Close</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+        <div style="display: flex; flex-direction: column">
+          <label for="filter-mid">Mid:</label>
+          <select id="filter-mid" [(ngModel)]="midFilter">
+            <option value="">Any</option>
+            <option value="Urgent">Urgent</option>
+            <option value="Mid">Mid</option>
+          </select>
+        </div>
+      </div>
+      <div class="search-reset-botton">
+        <button (click)="search()" class="back">Search</button>
+        <button class="reset" (click)="clearFilters()">clear</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.header-container {
+  background-color: #35353a;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 10px;
+  color: white;
+}
+@media (max-width: 600px) {
+  .header-container {
+    width: 100%;
+  }
+}

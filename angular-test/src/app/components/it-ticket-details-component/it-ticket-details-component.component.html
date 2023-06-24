@@ -1,0 +1,159 @@
+<div class="ticket-container">
+  <div class="ticket-left">
+    <div class="ticket-top">
+      <div>
+        <p style="font-size: 20px; font-weight: 600">Issue with finding task</p>
+      </div>
+      <div
+        style="
+          display: flex;
+          width: 50%;
+          align-items: center;
+          justify-content: end;
+          gap: 10px;
+        "
+      >
+        <div style="font-size: 20px; font-weight: 500">
+          {{ ticket.desc }}
+        </div>
+        <div class="line"></div>
+        <div
+          class="ticket-status"
+          [ngClass]="{
+            closed: ticket.open === 'Close',
+            low: ticket.open === 'Low',
+            'open-border': ticket.open === 'Open'
+          }"
+        >
+          {{ ticket.open }}
+        </div>
+        <div
+          class="ticket-mid"
+          [ngClass]="{
+            urgent: ticket.mid === 'Urgent',
+            mid: ticket.mid === 'Mid'
+          }"
+        >
+          {{ ticket.mid ? ticket.mid : "" }}
+        </div>
+      </div>
+    </div>
+    <div class="ticket-detailes-container">
+      <div style="display: flex; width: 100%">
+        <div class="avatar">{{ ticket.name | slice : 0 : 1 }}</div>
+        <div class="ticket-detailes">
+          <div class="ticket-detailes-top">
+            <p>
+              {{ ticket.title }}
+            </p>
+            <p style="color: #9e9e9e">
+              {{ ticket.date }}
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 10px; align-items: center">
+            <div style="font-size: 15px">
+              Constantly-updated list of well designed invoices from the
+              always-fresh Muzli inventory, to inspire you in your print, or
+              digital design process.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; width: 100%">
+        <div class="avatar"><img src="../../../assets/avatar.png" /></div>
+        <div class="ticket-detailes" style="background-color: #fbf4ee">
+          <div class="ticket-detailes-top">
+            <p>Technical support</p>
+            <p style="color: #9e9e9e">
+              {{ ticket.date }}
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 10px; align-items: center">
+            <div style="font-size: 15px">
+              Constantly-updated list of well designed invoices from the
+              always-fresh Muzli inventory, to inspire you in your print, or
+              digital design process.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; width: 100%">
+        <div class="avatar">{{ ticket.name | slice : 0 : 1 }}</div>
+        <div class="ticket-detailes">
+          <div class="ticket-detailes-top">
+            <p>
+              {{ ticket.title }}
+            </p>
+            <p style="color: #9e9e9e">
+              {{ ticket.date }}
+            </p>
+          </div>
+
+          <div
+            style="
+              display: flex;
+              gap: 10px;
+              align-items: center;
+              flex-direction: column;
+            "
+          >
+            <div style="font-size: 15px">
+              Constantly-updated list of well designed invoices from the
+              always-fresh Muzli inventory, to inspire you in your print, or
+              digital design process.
+            </div>
+
+            <img src="../../../assets/img.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <form (ngSubmit)="onSubmit()">
+      <input type="text" id="Issue" name="Issue" [(ngModel)]="Issue.Issue" />
+      <div style="display: flex; align-items: center;" class="send-req">
+        <button type="submit" class="send">send</button>
+        <input type="file" name="image" (change)="onImageSelected($event)"  />
+      </div>
+    </form>
+  </div>
+  <div class="ticket-right">
+    <div class="ticket-right-top">
+
+      <h1 style="font-size: 20px; font-weight: 500">Tickets Informations</h1>
+    </div>
+
+    <div class="ticket-right-bottom">
+      <div class="form-container">
+
+        <div class="form-input">
+          <label for="search-date" class="label-ticket">Requester</label>
+          {{ ticket.name }}
+        </div>
+        <div class="form-input">
+          <label for="search-title" class="label-ticket">Category</label>
+          {{ ticket.desc }}
+        </div>
+        <div>
+          <label for="search-desc" class="label-ticket">Status</label>
+          {{ ticket.open }}
+        </div>
+        <div>
+          <label for="search-desc" class="label-ticket">Status</label>
+          {{ ticket.mid }}
+        </div>
+        <div>
+          <label for="search-desc" class="label-ticket">Created date</label>
+          {{ ticket.date }}
+        </div>
+      </div>
+
+      <div class="search-reset-botton">
+        <a href="/it" class="link-new-ticket">
+          <button class="back">Close Ticket</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
